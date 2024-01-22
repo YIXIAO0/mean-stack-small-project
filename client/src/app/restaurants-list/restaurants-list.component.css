@@ -1,0 +1,58 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+  
+th {
+    background-color: #f2f2f2;
+    color: black;
+}
+  
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+  
+tr:hover {
+    background-color: #e8f4f8;
+}
+  
+.btn {
+    margin: 5px;
+    border: none;
+    padding: 7px 10px;
+    cursor: pointer;
+}
+  
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+}
+  
+.btn-danger {
+    background-color: #f44336;
+    color: white;
+}
+  
+.btn:active {
+    transform: translateY(1px);
+}
+  
+input[type="text"],
+input[type="number"] {
+  padding: 8px;
+  margin: 10px 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-container {
+  margin-bottom: 20px; 
+  text-align: center; 
+}
+  

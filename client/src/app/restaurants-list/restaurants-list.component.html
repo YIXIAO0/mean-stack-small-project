@@ -1,0 +1,43 @@
+<h2 class="text-center m-5">Restaurants List</h2>
+
+<div class="input-container">
+    <input type="text" [(ngModel)]="searchName" (input)="onSearchChange()" placeholder="Search by name...">
+    <input type="number" [(ngModel)]="minRating" (input)="onSearchChange()" placeholder="Min Rating">
+    <input type="number" [(ngModel)]="maxRating" (input)="onSearchChange()" placeholder="Max Rating">
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Cuisine Type</th>
+            <th>Rating</th>
+            <th>Price Range</th>
+            <!-- <th>Website</th> -->
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let restaurant of restaurants$ | async">
+            <td>
+                <a *ngIf="restaurant.websiteURL" href="{{restaurant.websiteURL}}" target="_blank"
+                    rel="noopener noreferrer">
+                    {{restaurant.name}}
+                </a>
+                <span *ngIf="!restaurant.websiteURL">{{restaurant.name}}</span>
+            </td>
+            <td>{{restaurant.location}}</td>
+            <td>{{ restaurant.cuisineType | titlecase }}</td>
+            <td>{{restaurant.rating}}</td>
+            <td>{{restaurant.priceRange}}</td>
+            <td>
+                <button class="btn btn-primary me-1" [routerLink]="['edit/', restaurant._id]">Edit</button>
+                <button class="btn btn-danger" (click)="deleteRestaurant(restaurant._id || '')">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<button class="btn btn-primary mt-3" [routerLink]="['new']">Add a New Restaurant</button>
